@@ -1,15 +1,15 @@
 import "./style.css";
-import { Client, Databases } from "appwrite";
+import { Client, Databases, ID } from "appwrite";
 
 const client = new Client();
-
-const tasksList = document.querySelector("#tasks-list");
 
 client
   .setEndpoint(import.meta.env.VITE_APPWRITE_URL)
   .setProject(import.meta.env.VITE_APPWRITE_ACCOUNT);
 
 const db = new Databases(client);
+const tasksList = document.querySelector("#tasks-list");
+const form = document.querySelector("#form");
 
 const getTasks = async function () {
   const response = await db.listDocuments(
@@ -33,4 +33,12 @@ const renderTasks = async function (task) {
   `;
   // console.log(task);
   tasksList.insertAdjacentHTML("afterbegin", renderTasks);
+};
+
+const createTask = async function () {
+  const response = await db.createDocument(
+    import.meta.env.VITE_DATABASE_ID,
+    import.meta.env.VITE_COLLECTION_ID,
+    ID.unique()
+  );
 };
