@@ -10,5 +10,10 @@
   },
   "devDependencies": {
     "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "appwrite": "^14.0.0",
+    "dotenv": "^16.4.5",
+    "requirejs": "^2.3.6"
   }
 }
