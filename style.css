@@ -92,3 +92,11 @@ p {
   text-decoration-color: var(--color-dark);
   font-style: italic;
 }
+
+.form-error {
+  color: #fe4e6f;
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: 1.2rem;
+  margin-left: 0.2rem;
+}
